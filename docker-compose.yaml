@@ -1,0 +1,39 @@
+version: "3.8"
+services:
+  web:
+    build: ./weight-tracker-frontend
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
+    networks:
+      - network-backend
+    environment:
+      NEXT_PUBLIC_BASE_URL: http://localhost:3001
+  api:
+    build: ./weight-tracker-backend 
+    depends_on:
+      - mongo
+    ports:
+      - "3001:3001"
+    networks: 
+      - network-backend
+    environment:
+      MONGO_URL: mongodb://mongo:27017/weight
+      PORT: 3001
+      SECRET: password123
+      MONGO_DB_NAME: weight
+  
+  mongo:
+    image: mongo
+    restart: always
+    volumes: 
+      - mongodb_data:/data/db
+    networks: 
+     - network-backend
+
+networks:
+  network-backend:
+
+volumes: 
+  mongodb_data:
