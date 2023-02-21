@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  margin: 0; 
+  padding: 0; 
+  width: 100vw;
+  height: 100vh;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+main{
+  @apply rounded-lg p-2;
+
+  height: 90%;
+  max-height: 737px;
+  aspect-ratio: 1 / 1.8;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  overflow-y:scroll;
+} 
+
+.loading{
+  @apply rounded-lg p-2;
+
+  height: 90%;
+  max-height: 737px;
+  aspect-ratio: 1 / 1.8;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.btn{
+  @apply w-full text-white bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center;
+}
+
+.input{
+  @apply bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-gray-600 focus:border-gray-600 block w-full p-2.5;
+}
